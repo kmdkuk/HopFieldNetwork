@@ -1,4 +1,6 @@
 import numpy as np
+import random
+
 data = [[0,1,0,
          1,0,1,
          0,1,0],
@@ -32,6 +34,24 @@ def learning(data, size):
 w = learning(data, size)
 print("w:")
 print(w)
+
+print(range(size))
+def recogniz(x):
+    time = 10000
+    for t in range(time):
+        i = random.randint(0,size-1)
+        tmp = 0
+        for j in range(size-1):
+            tmp += w[i][j]*x[j]
+        if tmp > 0:
+            x[i] = 1
+        elif tmp < 0:
+            x[i] = 0
+        else:
+            x[i] = x[i]
+    return x
+
+print(recogniz(X))
 
 def recognizing(x):
   loop = 10
